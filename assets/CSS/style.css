@@ -1,0 +1,394 @@
+* {
+    font-family: 'Libre Franklin', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+    overflow-x: hidden;
+}
+
+body, html {
+    background-color: #131316;
+    height: 100%;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.8em;
+    color: #000000;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth
+}
+
+body > div {
+    margin-top: 50px;
+}
+
+/* Menu */
+
+header {
+    background-color: #262626;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar {
+    min-height: 70px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #262626;
+    box-shadow: 0 0 3px 3px #262626;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-personal {
+    font-size: 2rem;
+    line-height: 1;
+    background: radial-gradient(circle, rgba(21,32,89,1) 0%, rgba(104,190,215,1) 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: background-pan 3s linear infinite;
+    background-size: 200%;
+    overflow: hidden;
+}
+
+.nav-link {
+    transition: .7s ease;
+}
+
+.nav-link:hover {
+    background: radial-gradient(circle, rgba(21,32,89,1) 0%, rgba(104,190,215,1) 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: background-pan 3s linear infinite;
+    background-size: 200%;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    background-color: white;
+}
+
+/* Menu hamburguesa */
+
+@media(max-width:768px){
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #262626;
+        width: 100%;
+        text-align: center;
+        transition: .3s;
+    }
+
+    .nav-item {
+        margin: 16px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+
+    }
+}
+
+/* Secciones oculto/mostrar*/
+
+section {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
+.oculto {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1.5s;
+}
+
+.mostrar {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.fotoperfil {
+    display: flex;
+    vertical-align: middle;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+/* Logos */
+
+.logos {
+    display: flex;
+    gap: 4vmin;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    padding-top: 50px;
+}
+
+.logo > .leng {
+    width: 10vmax;
+    height: 10vmax;
+}
+
+.logo:nth-child(2) {
+    transition-delay: 200ms;
+}
+.logo:nth-child(3) {
+    transition-delay: 400ms;
+}
+.logo:nth-child(4) {
+    transition-delay: 600ms;
+}
+
+/* Imagenes de fondo */
+
+.bimg1, .bimg2, .bimg3 {
+    position: relative;
+    opacity: .7;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.bimg1 {
+    background-image: url(https://cdn-employer-wp.arc.dev/wp-content/uploads/2022/04/software-development-costs-1128x635.jpg);
+    min-height: 100%;
+}
+.bimg2 {
+    background-image: url(https://www.unir.net/wp-content/uploads/2020/11/ficha_1920x1080-copiaiStock-862136832.jpg);
+    min-height: 400px;
+}
+.bimg3 {
+    background-image: url(https://images.unsplash.com/photo-1510936111840-65e151ad71bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1190&q=80);
+    min-height: 400px;
+}
+
+
+
+/* Textos */
+
+h1 {
+    overflow: hidden;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.textobl {
+    color: #fff;
+    padding-left: 15px;
+}
+
+.textot {
+    animation: background-pan 3s linear infinite;
+    position: absolute;
+    line-height: 1;
+    background: radial-gradient(circle, rgba(21,32,89,1) 0%, rgba(104,190,215,1) 100%);
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-left: 20px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200%;
+}
+
+.textoti {
+    animation: background-pan 3s linear infinite;
+    background: radial-gradient(circle, rgba(21,32,89,1) 0%, rgba(104,190,215,1) 100%);
+    font-size: 1.7rem;
+    padding-left: 15px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200%;
+}
+
+.textoa{
+    padding-left: 30px;
+    padding-bottom: 10px;
+    font-size: .9rem;
+    color: #8a8a8a;
+}
+
+.textof {
+    animation: background-pan 13s linear infinite;
+    line-height: 1;
+    background: radial-gradient(circle, rgba(21,32,89,1) 0%, rgba(104,190,215,1) 100%);
+    font-size: 3rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 200%;
+    overflow: hidden;
+}
+
+/* Animacion fondo texto */
+
+@keyframes background-pan {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}
+
+/* Seccion Educacion */
+
+.edu {
+    min-height: fit-content;
+}
+
+.edu-cont {
+    display: flex;
+    gap: 10vmin;
+    flex-direction: column;
+    padding: 150px 30px;
+}
+
+.item {
+    font-size: 1.3rem;
+    color: #262626;
+    padding: 3px;
+}
+
+.itemt {
+    background: radial-gradient(circle, rgba(21,32,89,1) 0%, rgba(104,190,215,1) 100%);
+    font-size: 1.4rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Seccion portfolio */
+
+.portf {
+    height: 100%;
+    width: 100%;
+    margin: 0rem;
+    overflow: hidden;
+}
+
+#track > .image {
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% 50%;
+}
+
+#track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+/* Footer */
+
+footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #262626;
+    height: auto;
+    padding-top: 0px;
+    width: 100vw;
+    height: 30vh;
+}
+
+.footer-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 30vh;
+}
+
+h3 {
+    font-size: 2.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.redes {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0 1rem 0;
+    width: 100vw;
+    justify-content: center;
+    background-color: #262626;
+}
+
+.redes li {
+    padding: 0 30px;
+}
